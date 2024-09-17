@@ -22,6 +22,22 @@ victor_scripts/tacc_specfiles/<CLUSTER>_specfiles/install.sh [-m] package
 
 where the `-m` option is needed for MPI-dependent packages.
 
+For some packages (hdf5 and netcdf) the spec file name is not the same as the installed package.
+Use:
+
+```
+[path]/install.sh -p hdf5 hdf5-par
+```
+
+For core packages (that is, with modules not in a compiler/mpi tree) you can limit 
+with what compiler to install:
+
+```
+[path]/install.sh -c g swig   # gcc
+[path]/install.sh -c i foo    # intel
+[path]/install.sh -c n bar    # nvidia
+```
+
 ## Version and release numbers
 
 There is a file `versions.txt` that should probably go.
